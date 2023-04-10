@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add Employee</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  </head>
+  <body>
+
+    {% include "navbar.html" %}
+    <h1 class ="text-center my-3">Update Employee</h1>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <div class="card bg-dark text-white">
+            <div class="card-body">
+
+
+              <form action="/doUpdate_emp/{{emps.id}}" method = "POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                  <label for="first_name"> First Name</label>
+                  <input id ="first_name"  name="emp_first_name" value = "{{emps.emp_first_name}}" type="text" class = "form-control" placeholder = "Enter Employee First Name">
+                </div>
+
+                <div class="mb-3">
+                    <label for="last_name"> Last Name</label>
+                    <input id ="last_name" name="emp_last_name" value = "{{emps.emp_last_name}}" type="text" class = "form-control" placeholder = "Enter Employee Last Name">
+                  </div>
+
+                <div class="mb-3">
+                  <label for="Age"> Age</label>
+                  <input id ="Age" name="emp_age" type="number"  value = "{{emps.emp_age}}" class = "form-control" placeholder = "Enter Employee Age">
+                </div>
+
+                <div class="mb-3">
+                  <label for="department"> Department</label>
+                  <input id ="department" name="emp_department" value = "{{emps.emp_department}}" type="text" class = "form-control" placeholder = "Enter Employee Department">
+                </div>
+
+                <div class="mb-3">
+                  <label for="Salary"> Salary</label>
+                  <input id ="Salary" name="emp_salary" value = "{{emps.emp_salary}}" type="number" class = "form-control" placeholder = "Enter Employee Salary">
+                </div>
+
+                <div class="mb-3">
+                    <label for="bonus"> Bonus</label>
+                    <input id ="bonus" name="emp_bonus" value = "{{emps.emp_bonus}}" type="number" class = "form-control" placeholder = "Enter Employee Bonus">
+                </div>
+
+                <div class="mb-3">
+                    <label for="role"> Role</label>
+                    <input id ="role" name="emp_role" value = "{{emps.emp_role}}" type="text" class = "form-control" placeholder = "Enter Employee Role">
+                </div>
+
+                <div class="mb-3">
+                    <label for="phone"> Phone No. </label>
+                    <input id ="phone" name="emp_phone" value = "{{emps.emp_phone}}" type="number" class = "form-control" placeholder = "Enter Employee Phone No. ">
+                  </div>
+
+                <div class="mb-3">
+                  <label for="Address">Address</label>
+                  <textarea id="Address" name="emp_address" cols="30" rows="3" class = "form-control" placeholder = "Enter Employee Address">{{emps.emp_address}}</textarea>
+                </div>
+
+                <div class="mb-3 form-check">
+                  <label for="Working">Working</label>
+                  <input {% if emps.emp_working %}checked{% endif %} type="checkbox" name="emp_working" id="Working" class = "form-check-input">
+                </div> 
+
+                <div class="container text-center">
+                  <button class="btn btn-success">Update Employee</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  </body>
+</html>
